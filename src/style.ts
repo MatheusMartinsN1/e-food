@@ -12,6 +12,7 @@ export const EstiloGlobal = createGlobalStyle`
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    list-style: none;
   }
 
   body {

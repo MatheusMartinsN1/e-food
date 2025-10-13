@@ -5,7 +5,7 @@ import Menu from '../../models/Menu'
 import Sushi from '../../assets/images/sushi.png'
 import trattotia from '../../assets/images/trattotia.png'
 
-const cardapio: Menu[] = [
+const restaurantes: Menu[] = [
   {
     id: 1,
     description:
@@ -66,7 +66,7 @@ const cardapio: Menu[] = [
 const Home = () => (
   <div>
     <Header />
-    <Listing itens={cardapio}/>
+    <Listing itens={restaurantes}/>
     <Footer />
   </div>
 )

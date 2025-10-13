@@ -15,9 +15,14 @@ export const ListItem = styled.li`
   text-decoration: none;
   color: ${Colors.red};
   font-weight: bold;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
-export const RestaurantsLink = styled(Link)`
+export const LinksHeader = styled(Link)`
   text-decoration: none;
   color: ${Colors.red};
   font-weight: bold;
@@ -38,7 +43,7 @@ export const TitleTrattoria = styled.h2`
   font-size: 2em;
   color: ${Colors.white};
   margin-left: 170px;
-  `
+`
 
 export const TitleItaliana = styled.h2`
   font-weight: 100;

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Colors } from '../../style'
 
 export const ListingContainer = styled.section`
   display: grid;

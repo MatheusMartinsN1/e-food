@@ -4,7 +4,7 @@ import {
   Banner,
   ContainerList,
   ListItem,
-  RestaurantsLink,
+  LinksHeader,
   TitleTrattoria,
   TitleItaliana
 } from './styles'
@@ -14,13 +14,13 @@ const HeaderBanner = () => (
     <Header showTag={false}>
       <ContainerList>
         <ListItem>
-          <RestaurantsLink to="/">Restaurantes</RestaurantsLink>
+          <LinksHeader to="/">Restaurantes</LinksHeader>
         </ListItem>
         <ListItem>
           <img src={logo} alt="Logo" />
         </ListItem>
         <ListItem>
-          <p>0 produto(s) no carrinho</p>
+          <LinksHeader to="#">0 produto(s) no carrinho</LinksHeader>
         </ListItem>
       </ContainerList>
     </Header>
