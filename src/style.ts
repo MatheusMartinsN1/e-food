@@ -13,6 +13,7 @@ export const EstiloGlobal = createGlobalStyle`
     padding: 0px;
     box-sizing: border-box;
     list-style: none;
+    font-family: 'Roboto', sans-serif;
   }
 
   body {

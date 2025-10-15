@@ -11,7 +11,8 @@ const cardapio: Pizza[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizza,
     title: 'Pizza Marguerita',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes',
+    price: 60.90
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ const cardapio: Pizza[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizza,
     title: 'Pizza Marguerita',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes',
+    price: 60.90
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ const cardapio: Pizza[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizza,
     title: 'Pizza Marguerita',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes',
+    price: 60.90
   },
   {
     id: 4,
@@ -35,7 +38,8 @@ const cardapio: Pizza[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizza,
     title: 'Pizza Marguerita',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes',
+    price: 60.90
   },
   {
     id: 5,
@@ -43,7 +47,8 @@ const cardapio: Pizza[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizza,
     title: 'Pizza Marguerita',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes',
+    price: 60.90
   },
   {
     id: 6,
@@ -51,7 +56,8 @@ const cardapio: Pizza[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizza,
     title: 'Pizza Marguerita',
-    button: 'Adicionar ao carrinho'
+    button: 'Mais detalhes',
+    price: 60.90
   },
 ]
 

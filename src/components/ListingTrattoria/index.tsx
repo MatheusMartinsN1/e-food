@@ -15,6 +15,7 @@ const ListingTrattoria = ({ itensPizza }: Props) => (
         image={item.image}
         description={item.description}
         button={item.button}
+        price={item.price}
       />
     ))}
   </ContainerPizza>
