@@ -3,6 +3,7 @@ import HeaderBanner from '../../components/HeaderBanner'
 import Pizza from '../../models/Pizza'
 import pizza from '../../assets/images/pizza.png'
 import ListingTrattoria from '../../components/ListingTrattoria'
+import ModalCart from '../../components/ModalCart'
 
 const cardapio: Pizza[] = [
   {
@@ -65,6 +66,7 @@ const Trattoria = () => (
   <div>
     <HeaderBanner />
     <ListingTrattoria itensPizza={cardapio}/>
+    <ModalCart />
     <Footer />
   </div>
 )

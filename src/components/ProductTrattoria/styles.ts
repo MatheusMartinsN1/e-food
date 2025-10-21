@@ -33,4 +33,5 @@ export const ButtonPizza = styled.button`
   margin: 0px auto 8px;
   padding: 4px;
   cursor: pointer;
+  font-weight: bold;
 `

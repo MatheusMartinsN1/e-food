@@ -26,7 +26,19 @@ export const LinksHeader = styled(Link)`
   text-decoration: none;
   color: ${Colors.red};
   font-weight: bold;
+  font-size: 18px;
 `
+
+export const ButtonHeader = styled.button`
+  text-decoration: none;
+  color: ${Colors.red};
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+`
+
 export const Banner = styled.div`
   background-image: url(${BannerTrattoria});
   background-size: cover;

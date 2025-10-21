@@ -7,9 +7,8 @@ import {
   ButtonPizza,
   TextPizza
 } from './styles'
-
+import { useModal } from '../../hooks/useModa'
 import ModalPizza from '../ModalPizza'
-import { useState } from 'react'
 
 export type Props = {
   title: string
@@ -17,18 +16,22 @@ export type Props = {
   description: string
   button: string
   price: number
+  id: number
 }
 
-const ProductTrattoria = ({ button, description, image, title, price }: Props) => {
-  const [isOpen, setIsOpen] = useState(false)
+const ProductTrattoria = ({
+  button,
+  description,
+  image,
+  title,
+  price,
+  id
+}: Props) => {
+  const { isOpen, toggleModal } = useModal()
   const dispatch = useDispatch()
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen)
-  }
-
   const AddToCart = () => {
-    dispatch(addItem({ price }))
+    dispatch(addItem({ price, id, image, title }))
     toggleModal()
   }
 
@@ -49,7 +52,7 @@ const ProductTrattoria = ({ button, description, image, title, price }: Props) =
           <div>
             <h3>{title}</h3>
             <p>
-              A pizza Margherita é uma pizza clássica da culinária italiana,
+              A pizza Marguerita é uma pizza clássica da culinária italiana,
               reconhecida por sua simplicidade e sabor inigualável. Ela é feita
               com uma base de massa fina e crocante, coberta com molho de tomate
               fresco, queijo mussarela de alta qualidade, manjericão fresco e
@@ -60,7 +63,9 @@ const ProductTrattoria = ({ button, description, image, title, price }: Props) =
               deliciosa, que agrada a todos os paladares e é uma ótima opção
               para qualquer ocasião. <span>Serve: de 2 a 3 pessoas</span>
             </p>
-            <button onClick={AddToCart}>Adicionar ao carrinho - R$ 60,90</button>
+            <button onClick={AddToCart}>
+              Adicionar ao carrinho - R$ 60,90
+            </button>
           </div>
         </ModalPizza>
       )}
