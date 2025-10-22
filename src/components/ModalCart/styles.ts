@@ -59,6 +59,7 @@ export const DeliveryButton = styled.button`
   width: 95%;
   margin: 0px auto;
   padding: 4px 0px;
+  background-color: ${Colors.bege};
 `
 
 export const Warning = styled.p`
