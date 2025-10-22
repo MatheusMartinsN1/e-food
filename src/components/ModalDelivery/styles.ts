@@ -54,3 +54,11 @@ export const FormButton = styled.button`
 export const ButtonContainer = styled.div`
   margin-top: 24px;
 `
+
+export const ErrorText = styled.p`
+  font-weight: bold;
+  color: ${Colors.white};
+  text-decoration: underline;
+  text-align: center;
+  padding: 10px 0px;
+`

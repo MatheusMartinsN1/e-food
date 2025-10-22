@@ -47,7 +47,6 @@ const ModalCart = () => {
     <ModalBase>
       {items.length === 0 && <EmptyCart>O carrinho está vazio</EmptyCart>}
       {items.map((item) => (
-        <>
           <CartItems key={item.id}>
             <ImagePizza src={item.image} alt={item.title} />
             <div>
@@ -60,7 +59,6 @@ const ModalCart = () => {
               onClick={() => dispatch(clearCart(item.id))}
             />
           </CartItems>
-        </>
       ))}
       <div>
         <TotalValue>
