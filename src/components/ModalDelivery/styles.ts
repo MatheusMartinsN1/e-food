@@ -13,6 +13,8 @@ export const TitleForm = styled.h4`
 export const FieldsFlex = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
 `
 
 export const Fields = styled.input`
@@ -60,5 +62,6 @@ export const ErrorText = styled.p`
   color: ${Colors.white};
   text-decoration: underline;
   text-align: center;
+  font-size: small;
   padding: 10px 0px;
 `

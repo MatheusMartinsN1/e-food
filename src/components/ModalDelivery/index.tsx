@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { RootState } from '../../store/store'
+
 import ModalBase from '../ModalBase'
 import {
   Fields,
@@ -13,6 +14,7 @@ import {
   ButtonContainer,
   ErrorText
 } from './styles'
+
 import { openModal } from '../../store/modalSlice'
 
 type DeliveryForm = {

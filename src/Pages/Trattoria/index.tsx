@@ -5,6 +5,7 @@ import pizza from '../../assets/images/pizza.png'
 import ListingTrattoria from '../../components/ListingTrattoria'
 import ModalCart from '../../components/ModalCart'
 import ModalDelivery from '../../components/ModalDelivery'
+import ModalPayment from '../../components/ModalPayment'
 
 const cardapio: Pizza[] = [
   {
@@ -69,6 +70,7 @@ const Trattoria = () => (
     <ListingTrattoria itensPizza={cardapio}/>
     <ModalCart />
     <ModalDelivery/>
+    <ModalPayment />
     <Footer />
   </div>
 )

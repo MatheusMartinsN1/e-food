@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { RootState } from '../../store/store'
+import { selectCartTotal } from '../../store/cartSlice'
 import ModalBase from '../ModalBase'
+
 import {
   CartItems,
   Trash,
@@ -13,6 +15,7 @@ import {
   DeliveryButton,
   Warning,
 } from './styles'
+
 import lixeira from '../../assets/images/lixeira.png'
 import { clearCart } from '../../store/cartSlice'
 import { openModal } from '../../store/modalSlice'
@@ -20,7 +23,7 @@ import { openModal } from '../../store/modalSlice'
 const ModalCart = () => {
   const dispatch = useDispatch()
   const items = useSelector((state: RootState) => state.cart.items)
-  const total = items.reduce((acc, item) => acc + item.price, 0)
+  const total = useSelector(selectCartTotal)
   const activeModal = useSelector((state: RootState) => state.modal.activeModal)
   const isOpen = activeModal === 'cart'
   const [warning, setWarning] = useState('')
