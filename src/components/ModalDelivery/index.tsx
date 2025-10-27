@@ -56,24 +56,27 @@ const ModalDelivery = () => {
         <FieldName htmlFor="name">Quem irá receber</FieldName>
         <Fields
           type="text"
-          {...register('name', { required: 'O nome é obrigatório!' })}
           id="name"
+          placeholder="Ex: Matheus Martins"
+          {...register('name', { required: 'O nome é obrigatório!' })}
         />
         {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
 
         <FieldName htmlFor="address">Endereço</FieldName>
         <Fields
-          {...register('address', { required: 'O endereço é obrigatório!' })}
           type="text"
           id="address"
+          placeholder="Ex: Avenida Paulista"
+          {...register('address', { required: 'O endereço é obrigatório!' })}
         />
         {errors.address && <ErrorText>{errors.address.message}</ErrorText>}
 
         <FieldName htmlFor="city">Cidade</FieldName>
         <Fields
-          {...register('city', { required: 'O nome da cidade é obrigatório!' })}
           type="text"
           id="city"
+          placeholder="EX: São Paulo"
+          {...register('city', { required: 'O nome da cidade é obrigatório!' })}
         />
         {errors.city && <ErrorText>{errors.city.message}</ErrorText>}
 
@@ -81,6 +84,10 @@ const ModalDelivery = () => {
           <div>
             <FieldNameFlex htmlFor="cep">CEP</FieldNameFlex>
             <FieldNumber
+              inputMode="numeric"
+              type="text"
+              id="cep"
+              placeholder="Ex: 12345-678"
               {...register('cep', {
                 required: 'O CEP é obrigatório',
                 pattern: {
@@ -88,8 +95,13 @@ const ModalDelivery = () => {
                   message: 'CEP inválido'
                 }
               })}
-              type="number"
-              id="cep"
+              onInput={(e) => {
+                let value = e.currentTarget.value.replace(/\D/g, '')
+                if (value.length > 8) value = value.slice(0, 8)
+                if (value.length > 5)
+                  value = `${value.slice(0, 5)}-${value.slice(5)}`
+                e.currentTarget.value = value
+              }}
             />
             {errors.cep && <ErrorText>{errors.cep.message}</ErrorText>}
           </div>
@@ -97,9 +109,14 @@ const ModalDelivery = () => {
           <div>
             <FieldNameFlex htmlFor="number">Número</FieldNameFlex>
             <FieldNumber
-              {...register('number', { required: 'O número é obrigatório!' })}
-              type="number"
+              type="text"
               id="number"
+              inputMode="numeric"
+              placeholder="Ex: 123"
+              {...register('number', { required: 'O número é obrigatório!' })}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '')
+              }}
             />
             {errors.number && <ErrorText>{errors.number.message}</ErrorText>}
           </div>
@@ -110,7 +127,9 @@ const ModalDelivery = () => {
 
         <ButtonContainer>
           <FormButton type="submit">Continuar com o pagamento</FormButton>
-          <FormButton type="button" onClick={handleBack}>Voltar para o carrinho</FormButton>
+          <FormButton type="button" onClick={handleBack}>
+            Voltar para o carrinho
+          </FormButton>
         </ButtonContainer>
       </form>
     </ModalBase>

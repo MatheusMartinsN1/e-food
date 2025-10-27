@@ -6,6 +6,7 @@ import ListingTrattoria from '../../components/ListingTrattoria'
 import ModalCart from '../../components/ModalCart'
 import ModalDelivery from '../../components/ModalDelivery'
 import ModalPayment from '../../components/ModalPayment'
+import ModalConfirmation from '../../components/ModalConfirmation'
 
 const cardapio: Pizza[] = [
   {
@@ -71,6 +72,7 @@ const Trattoria = () => (
     <ModalCart />
     <ModalDelivery/>
     <ModalPayment />
+    <ModalConfirmation />
     <Footer />
   </div>
 )

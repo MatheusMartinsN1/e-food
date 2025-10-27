@@ -18,6 +18,7 @@ import {
 import { openModal } from '../../store/modalSlice'
 import { FieldNumberCard, FieldNumberCvv, FieldsContainer } from './styles'
 import { RootState } from '../../store/store'
+import { setOrderId } from '../../store/orderSlice'
 
 type PaymentModal = {
   name: string
@@ -40,8 +41,13 @@ const ModalPayment = () => {
   } = useForm<PaymentModal>()
 
   const onSubmit = (data: PaymentModal) => {
+    const orderId =
+      'ORD-' + Math.random().toString(36).substring(2, 8).toUpperCase()
+
     console.log('Dados do pagamento', data)
     toast.success('Pagamento realizado com sucesso!')
+
+    dispatch(setOrderId(orderId))
 
     setTimeout(() => {
       dispatch(openModal('confirmation'))
@@ -71,6 +77,7 @@ const ModalPayment = () => {
         <Fields
           id="name"
           type="text"
+          placeholder="Ex: Matheus Martins"
           {...register('name', {
             required: 'O nome no cartão é obrigatório',
             minLength: {
@@ -78,7 +85,7 @@ const ModalPayment = () => {
               message: 'Digite o nome completo do cartão'
             }
           })}
-        ></Fields>
+        />
 
         <FieldsFlex>
           <FieldsContainer>
@@ -88,6 +95,8 @@ const ModalPayment = () => {
             <FieldNumberCard
               id="card-number"
               type="text"
+              inputMode="numeric"
+              placeholder="Ex: 4111111111111111"
               maxLength={16}
               {...register('numberCard', {
                 required: 'O número do cartão é obrigatório',
@@ -96,6 +105,9 @@ const ModalPayment = () => {
                   message: 'O número do cartão deve ter 16 dígitos numéricos'
                 }
               })}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '')
+              }}
             />
           </FieldsContainer>
 
@@ -104,6 +116,8 @@ const ModalPayment = () => {
             <FieldNumberCvv
               id="cvv"
               type="text"
+              inputMode="numeric"
+              placeholder="Ex: 123"
               maxLength={3}
               {...register('cvv', {
                 required: 'O CVV é obrigatório',
@@ -112,6 +126,9 @@ const ModalPayment = () => {
                   message: 'O CVV deve ter 3 números'
                 }
               })}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '')
+              }}
             />
           </FieldsContainer>
 
@@ -120,6 +137,8 @@ const ModalPayment = () => {
             <FieldNumber
               type="text"
               id="due-month"
+              inputMode="numeric"
+              placeholder="Ex: 08"
               maxLength={2}
               {...register('dueMonth', {
                 required: 'Informe o mês de vencimento',
@@ -128,6 +147,9 @@ const ModalPayment = () => {
                   message: 'Mês inválido (01 a 12)'
                 }
               })}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '')
+              }}
             />
           </FieldsContainer>
 
@@ -138,6 +160,8 @@ const ModalPayment = () => {
             <FieldNumber
               type="text"
               id="expiry-year"
+              inputMode="numeric"
+              placeholder="2030"
               maxLength={4}
               {...register('expiryYear', {
                 required: 'Informe o ano de vencimento',
@@ -146,6 +170,9 @@ const ModalPayment = () => {
                   message: 'Ano inválido (maior ou igual a 2025)'
                 }
               })}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '')
+              }}
             />
           </FieldsContainer>
         </FieldsFlex>

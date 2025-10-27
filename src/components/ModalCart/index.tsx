@@ -17,7 +17,7 @@ import {
 } from './styles'
 
 import lixeira from '../../assets/images/lixeira.png'
-import { clearCart } from '../../store/cartSlice'
+import { removeItem } from '../../store/cartSlice'
 import { openModal } from '../../store/modalSlice'
 
 const ModalCart = () => {
@@ -59,7 +59,7 @@ const ModalCart = () => {
             <Trash
               src={lixeira}
               alt="Lixeira"
-              onClick={() => dispatch(clearCart(item.id))}
+              onClick={() => dispatch(removeItem(item.id))}
             />
           </CartItems>
       ))}
