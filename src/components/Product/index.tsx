@@ -17,6 +17,7 @@ export type Props = {
   category: string
   assessment: string
   highlight?: string
+  inactive?: boolean
 }
 
 const Product = ({
@@ -25,7 +26,8 @@ const Product = ({
   description,
   image,
   title,
-  highlight
+  highlight,
+  inactive
 }: Props) => (
   <ListItem>
     <FoodImage src={image} alt={title} />
@@ -39,7 +41,7 @@ const Product = ({
     </div>
     <InfoFoods>{description}</InfoFoods>
     <ButtonContainer>
-      <Button to="/trattoria">Saiba mais</Button>
+      <Button to={inactive ? '#' : '/trattoria'} >Saiba mais</Button>
     </ButtonContainer>
   </ListItem>
 )

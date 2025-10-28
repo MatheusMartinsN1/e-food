@@ -17,6 +17,7 @@ const Listing = ({ itens }: Props) => (
           image={item.image}
           title={item.title}
           highlight={item.highlight}
+          inactive={item.id === 1}
         />
       ))}
   </ListingContainer>
