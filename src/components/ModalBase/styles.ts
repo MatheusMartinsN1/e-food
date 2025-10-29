@@ -17,5 +17,6 @@ export const ModalContent = styled.div`
 
   ${media.mobile} {
     width: 220px;
+    position: absolute;
   }
 `

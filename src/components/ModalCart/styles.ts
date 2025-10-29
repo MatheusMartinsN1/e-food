@@ -22,8 +22,9 @@ export const CartItems = styled.div`
 
   ${media.mobile} {
     width: 208px;
-    display: block;
     height: 150px;
+    margin: 32px auto;
+    display: block;
   }
 `
 

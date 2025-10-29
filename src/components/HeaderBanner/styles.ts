@@ -56,7 +56,11 @@ export const Banner = styled.div`
 
   ${media.mobile} {
     background-size: contain;
-    width: 700px;
+    top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
   }
 `
 
@@ -67,7 +71,8 @@ export const TitleTrattoria = styled.h2`
   margin-left: 170px;
 
   ${media.mobile} {
-    margin-left: 30px;
+    font-size: 1.5em;
+    margin: 0px 8px;
   }
 `
 
@@ -81,7 +86,6 @@ export const TitleItaliana = styled.h2`
   margin-left: 170px;
 
   ${media.mobile} {
-    margin-left: 30px;
-    margin-bottom: 50px;
+    margin: 0px 8px;
   }
 `
