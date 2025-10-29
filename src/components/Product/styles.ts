@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Colors } from '../../style'
+import { Colors, media } from '../../style'
 
 export const ListItem = styled.div`
   position: relative;
@@ -14,10 +14,26 @@ export const ListItem = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  ${media.mobile} {
+    width: 300px;
+  }
+
+  ${media.tablet} {
+    width: 370px;
+  }
 `
 
 export const FoodImage = styled.img`
   width: 473px;
+
+  ${media.mobile} {
+    width: 299px;
+  }
+
+  ${media.tablet} {
+    width: 369px;
+  }
 `
 
 export const TitleFoods = styled.h2`

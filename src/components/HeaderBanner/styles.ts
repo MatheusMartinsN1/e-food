@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import BannerTrattoria from '../../assets/images/banner_trattoria.png'
-import { Colors } from '../../style'
+import { Colors, media } from '../../style'
 
 export const ContainerList = styled.ul`
   display: flex;
@@ -9,6 +9,11 @@ export const ContainerList = styled.ul`
   align-items: center;
   list-style: none;
   padding-top: 40px;
+
+  ${media.mobile} {
+    flex-direction: column;
+    gap: 20px;
+  }
 `
 
 export const ListItem = styled.li`
@@ -48,6 +53,11 @@ export const Banner = styled.div`
   z-index: 0;
   position: absolute;
   top: 240px;
+
+  ${media.mobile} {
+    background-size: contain;
+    width: 700px;
+  }
 `
 
 export const TitleTrattoria = styled.h2`
@@ -55,6 +65,10 @@ export const TitleTrattoria = styled.h2`
   font-size: 2em;
   color: ${Colors.white};
   margin-left: 170px;
+
+  ${media.mobile} {
+    margin-left: 30px;
+  }
 `
 
 export const TitleItaliana = styled.h2`
@@ -65,4 +79,9 @@ export const TitleItaliana = styled.h2`
   margin-bottom: 158px;
   margin-top: 25px;
   margin-left: 170px;
+
+  ${media.mobile} {
+    margin-left: 30px;
+    margin-bottom: 50px;
+  }
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Colors } from '../../style'
+import { Colors, media } from '../../style'
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -12,6 +12,10 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 999;
+
+  ${media.mobile} {
+    display: block;
+  }
 `
 
 export const ModalContent = styled.div`
@@ -40,6 +44,10 @@ export const ModalContent = styled.div`
 
   div {
     margin-left: 24px;
+
+    ${media.mobile} {
+      margin: 0px;
+    }
   }
 
   img {
@@ -67,6 +75,16 @@ export const ModalContent = styled.div`
   span {
     display: block;
     margin: 20px 0px 14px;
+  }
+
+  ${media.mobile} {
+    display: block;
+    max-width: 330px;
+    top: 4%;
+    left: 4%;
+    position: absolute;
+    max-height: 100%;
+    text-align: center;
   }
 `
 

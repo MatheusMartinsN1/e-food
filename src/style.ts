@@ -7,6 +7,16 @@ export const Colors = {
   white: '#FFF'
 }
 
+const breakpoints = {
+  mobile: '480px',
+  tablet: '768px'
+}
+
+export const media = {
+  mobile: `@media (max-width: ${breakpoints.mobile})`,
+  tablet: `@media (min-width: ${breakpoints.tablet})`
+}
+
 export const EstiloGlobal = createGlobalStyle`
   * {
     margin: 0px;
@@ -20,5 +30,3 @@ export const EstiloGlobal = createGlobalStyle`
     background-color: ${Colors.bege};
   }
 `
-
-

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Colors } from '../../style'
+import { Colors, media } from '../../style'
 
 export const FormContainer = styled.form`
   margin-left: 8px;
@@ -24,6 +24,10 @@ export const Fields = styled.input`
   padding: 6px;
   background-color: ${Colors.bege};
   border: none;
+
+  ${media.mobile} {
+    width: 200px;
+  }
 `
 
 export const FieldName = styled.label`
@@ -51,6 +55,10 @@ export const FormButton = styled.button`
   margin: 0px auto;
   margin-bottom: 8px;
   width: 344px;
+
+  ${media.mobile} {
+    width: 200px;
+  }
 `
 
 export const ButtonContainer = styled.div`

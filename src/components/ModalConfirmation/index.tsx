@@ -24,7 +24,9 @@ const ModalConfirmation = () => {
 
   return (
     <ModalBase>
-      <TitleConfirmation>Pedido realizado - {orderId}</TitleConfirmation>
+      <TitleConfirmation>
+        Pedido realizado - <span>{orderId}</span>
+      </TitleConfirmation>
 
       <TextConfirmation>
         Estamos felizes em informar que seu pedido já está em processo de

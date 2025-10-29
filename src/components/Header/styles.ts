@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 import backgroundImage from '../../assets/images/vector.jpg'
-import { Colors } from '../../style'
+import { Colors, media } from '../../style'
 
 export const HeaderContainer = styled.header`
   background-image: url(${backgroundImage});
   height: 384px;
+
+  ${media.mobile} {
+    width: 100%;
+  }
 `
 
 export const Logo = styled.img`
@@ -22,4 +26,9 @@ export const Text = styled.p`
   padding-top: 150px;
   width: 600px;
   color: ${Colors.red};
+
+  ${media.mobile} {
+    width: 100%;
+    font-size: 20px;
+  }
 `

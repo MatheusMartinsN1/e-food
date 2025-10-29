@@ -1,8 +1,14 @@
 import styled from 'styled-components'
-import { Colors } from '../../style'
+import { Colors, media } from '../../style'
 
 export const ImagePizza = styled.img`
   width: 80px;
+
+  ${media.mobile} {
+    margin: 0px auto;
+    display: block;
+    width: 100px;
+  }
 `
 
 export const CartItems = styled.div`
@@ -13,6 +19,12 @@ export const CartItems = styled.div`
   position: relative;
   width: 344px;
   height: 100px;
+
+  ${media.mobile} {
+    width: 208px;
+    display: block;
+    height: 150px;
+  }
 `
 
 export const TextCart = styled.p`
@@ -23,6 +35,10 @@ export const TextCart = styled.p`
 export const TitleCart = styled.h3`
   padding: 8px 0px 16px 8px;
   color: ${Colors.red};
+
+  ${media.mobile} {
+    text-align: center;
+  }
 `
 
 export const Trash = styled.img`
