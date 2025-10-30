@@ -6,7 +6,8 @@ export const ContainerPizza = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
   align-items: center;
-  margin: 200px 350px 0px 350px;
+  margin: 200px 190px 0px;
+  gap: 4px;
 
   ${media.mobile} {
     grid-template-columns: repeat(1, 1fr);
