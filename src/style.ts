@@ -9,12 +9,13 @@ export const Colors = {
 
 const breakpoints = {
   mobile: '480px',
-  tablet: '768px'
+  tablet: '768px',
+  tabletMax: '1024px'
 }
 
 export const media = {
   mobile: `@media (max-width: ${breakpoints.mobile})`,
-  tablet: `@media (min-width: ${breakpoints.tablet})`
+  tablet: `@media (min-width: ${breakpoints.tablet}) and (max-width:${breakpoints.tabletMax})`
 }
 
 export const EstiloGlobal = createGlobalStyle`

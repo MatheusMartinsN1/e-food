@@ -80,9 +80,7 @@ export const ModalContent = styled.div`
   ${media.mobile} {
     display: block;
     max-width: 330px;
-    top: 6%;
-    left: 12%;
-    position: absolute;
+    margin: 0px auto;
     max-height: 100%;
     text-align: center;
   }

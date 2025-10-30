@@ -5,14 +5,16 @@ export const ContainerPizza = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
-  margin-top: 200px;
+  align-items: center;
+  margin: 200px 350px 0px 350px;
 
   ${media.mobile} {
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 70px;
+    margin: 70px 0px;
   }
 
   ${media.tablet} {
     grid-template-columns: repeat(2, 1fr);
+    margin: 200px 0px;
   }
 `

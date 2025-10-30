@@ -6,12 +6,14 @@ export const ListingContainer = styled.section`
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
   margin-top: 80px;
+  margin: 80px 250px 0px 250px;
 
   ${media.mobile} {
     grid-template-columns: repeat(1, 1fr);
+    margin: 80px 0px;
   }
 
   ${media.tablet} {
-    grid-template-columns: ;
+    margin: 80px 0px;
   }
 `

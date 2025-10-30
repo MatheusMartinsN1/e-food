@@ -20,7 +20,7 @@ export const ListItem = styled.div`
   }
 
   ${media.tablet} {
-    width: 370px;
+    width: 350px;
   }
 `
 
@@ -32,7 +32,7 @@ export const FoodImage = styled.img`
   }
 
   ${media.tablet} {
-    width: 369px;
+    width: 349px;
   }
 `
 
