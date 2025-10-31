@@ -48,9 +48,7 @@ export const InfoFoods = styled.p`
 `
 
 export const ButtonContainer = styled.button`
-  padding: 4px 6px;
   margin: 0px 0px 8px 8px;
-  background-color: ${Colors.red};
   border: none;
   cursor: pointer;
   transition: all 0.5s ease;
@@ -63,7 +61,9 @@ export const ButtonContainer = styled.button`
 
 export const Button = styled(Link)`
   color: ${Colors.white};
+  background-color: ${Colors.red};
   text-decoration: none;
+  padding: 4px 6px;
 `
 
 export const Assessment = styled(TitleFoods)`
@@ -82,4 +82,34 @@ export const Category = styled.span`
   background-color: ${Colors.red};
   border: none;
   color: ${Colors.white};
+`
+
+export const DevTag = styled.span`
+  background-color: ${Colors.yellowDev};
+  color: ${Colors.textDev};
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 4px 6px;
+  margin-left: 6px;
+  justify-content: center;
+
+  ${media.mobile} {
+    display: flex;
+    margin-top: 8px;
+  }
+
+  ${media.tablet} {
+    display: flex;
+    margin-top: 8px;
+  }
+`
+
+export const InactiveButton = styled.div`
+  background-color: ${Colors.yellowDev};
+  color: ${Colors.textDev};
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: not-allowed;
+  border: none;
 `

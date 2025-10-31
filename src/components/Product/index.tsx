@@ -7,7 +7,9 @@ import {
   Assessment,
   Category,
   CategoryContainer,
-  ButtonContainer
+  ButtonContainer,
+  DevTag,
+  InactiveButton
 } from './styles'
 
 export type Props = {
@@ -34,6 +36,7 @@ const Product = ({
     <CategoryContainer>
       {highlight && <Category>{highlight}</Category>}
       <Category>{category}</Category>
+      {inactive && <DevTag>Em desenvolvimento</DevTag>}
     </CategoryContainer>
     <div>
       <TitleFoods>{title}</TitleFoods>
@@ -41,7 +44,13 @@ const Product = ({
     </div>
     <InfoFoods>{description}</InfoFoods>
     <ButtonContainer>
-      <Button to={inactive ? '#' : '/trattoria'} >Saiba mais</Button>
+      {inactive ? (
+        <InactiveButton as="div" className="inactive">
+          Em breve
+        </InactiveButton>
+      ) : (
+        <Button to="/trattoria">Saiba mais</Button>
+      )}
     </ButtonContainer>
   </ListItem>
 )

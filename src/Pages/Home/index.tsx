@@ -14,7 +14,8 @@ const restaurantes: Menu[] = [
     highlight: 'Destaque da semana',
     category: 'Japonesa',
     image: Sushi,
-    title: 'Hioki Sushi'
+    title: 'Hioki Sushi',
+    inactive: true
   },
   {
     id: 2,

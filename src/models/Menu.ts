@@ -6,6 +6,7 @@ class Menu {
   assessment: string
   id: number
   highlight?: string
+  inactive?: boolean
 
   constructor(
     title: string,
@@ -14,7 +15,8 @@ class Menu {
     category: string,
     assessment: string,
     id: number,
-    highlight: string
+    highlight: string,
+    inactive: boolean
   ) {
     this.title = title
     this.description = description
@@ -23,6 +25,7 @@ class Menu {
     this.assessment = assessment
     this.id = id
     this.highlight = highlight
+    this.inactive = inactive
   }
 }
 
