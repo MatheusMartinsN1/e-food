@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { Colors, media } from '../../style'
 
-export const ImagePizza = styled.img`
+export const ImgCart = styled.img`
   width: 80px;
+  object-fit: cover;
 
   ${media.mobile} {
     margin: 0px auto;

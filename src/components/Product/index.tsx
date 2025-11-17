@@ -8,35 +8,32 @@ import {
   Category,
   CategoryContainer,
   ButtonContainer,
-  DevTag,
-  InactiveButton
 } from './styles'
 
 export type Props = {
+  id: number
   title: string
   description: string
   image: string
-  category: string
-  assessment: string
-  highlight?: string
-  inactive?: boolean
+  type: string
+  assessment: number
+  highlighted?: boolean
 }
 
 const Product = ({
   assessment,
-  category,
+  type,
   description,
   image,
   title,
-  highlight,
-  inactive
+  highlighted,
+  id
 }: Props) => (
   <ListItem>
     <FoodImage src={image} alt={title} />
     <CategoryContainer>
-      {highlight && <Category>{highlight}</Category>}
-      <Category>{category}</Category>
-      {inactive && <DevTag>Em desenvolvimento</DevTag>}
+      {highlighted && <Category>Destaque da semana</Category>}
+      <Category>{type}</Category>
     </CategoryContainer>
     <div>
       <TitleFoods>{title}</TitleFoods>
@@ -44,13 +41,7 @@ const Product = ({
     </div>
     <InfoFoods>{description}</InfoFoods>
     <ButtonContainer>
-      {inactive ? (
-        <InactiveButton as="div" className="inactive">
-          Em breve
-        </InactiveButton>
-      ) : (
-        <Button to="/trattoria">Saiba mais</Button>
-      )}
+      <Button to={`/restaurants/${id}`}>Saiba mais</Button>
     </ButtonContainer>
   </ListItem>
 )

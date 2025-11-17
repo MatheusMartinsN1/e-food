@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import BannerTrattoria from '../../assets/images/banner_trattoria.png'
 import { Colors, media } from '../../style'
 
 export const ContainerList = styled.ul`
@@ -45,7 +44,6 @@ export const ButtonHeader = styled.button`
 `
 
 export const Banner = styled.div`
-  background-image: url(${BannerTrattoria});
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;

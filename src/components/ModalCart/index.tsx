@@ -7,7 +7,7 @@ import ModalBase from '../ModalBase'
 import {
   CartItems,
   Trash,
-  ImagePizza,
+  ImgCart,
   TitleCart,
   TextCart,
   EmptyCart,
@@ -51,7 +51,7 @@ const ModalCart = () => {
       {items.length === 0 && <EmptyCart>O carrinho está vazio</EmptyCart>}
       {items.map((item) => (
           <CartItems key={item.id}>
-            <ImagePizza src={item.image} alt={item.title} />
+            <ImgCart src={item.image} alt={item.title} />
             <div>
               <TitleCart>{item.title}</TitleCart>
               <TextCart>R$ {item.price.toFixed(2)}</TextCart>

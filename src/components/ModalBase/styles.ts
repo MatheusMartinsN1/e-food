@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ModalOverlay } from '../ModalPizza/styles'
+import { ModalOverlay } from '../ModalFood/styles'
 import { Colors, media } from '../../style'
 
 export const ModalOverlayAll = styled(ModalOverlay)`

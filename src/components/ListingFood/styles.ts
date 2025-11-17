@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { media } from '../../style'
 
-export const ContainerPizza = styled.ul`
+export const ContainerFood = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;

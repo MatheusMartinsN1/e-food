@@ -1,12 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const Colors = {
   red: '#E66767',
   bege: '#FFF8F2',
   bege2: '#FFEBD9',
-  white: '#FFF',
-  yellowDev: '#ffe599',
-  textDev: '#8a6d3b'
+  white: '#FFF'
 }
 
 const breakpoints = {
@@ -33,4 +31,10 @@ export const EstiloGlobal = createGlobalStyle`
   body {
     background-color: ${Colors.bege};
   }
+`
+
+export const Loading = styled.p`
+  text-align: center;
+  color: ${Colors.red};
+  font-size: 30px;
 `

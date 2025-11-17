@@ -26,6 +26,8 @@ export const ListItem = styled.div`
 
 export const FoodImage = styled.img`
   width: 473px;
+  height: 218px;
+  object-fit: cover;
 
   ${media.mobile} {
     width: 299px;
@@ -72,44 +74,15 @@ export const Assessment = styled(TitleFoods)`
 
 export const CategoryContainer = styled.div`
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 0px;
+  right: 0px;
+  margin: 16px 16px 0px 0px;
 `
 
 export const Category = styled.span`
   padding: 4px 6px;
-  margin: 0px 0px 8px 8px;
+  margin-left: 8px;
   background-color: ${Colors.red};
   border: none;
   color: ${Colors.white};
-`
-
-export const DevTag = styled.span`
-  background-color: ${Colors.yellowDev};
-  color: ${Colors.textDev};
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 4px 6px;
-  margin-left: 6px;
-  justify-content: center;
-
-  ${media.mobile} {
-    display: flex;
-    margin-top: 8px;
-  }
-
-  ${media.tablet} {
-    display: flex;
-    margin-top: 8px;
-  }
-`
-
-export const InactiveButton = styled.div`
-  background-color: ${Colors.yellowDev};
-  color: ${Colors.textDev};
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: not-allowed;
-  border: none;
 `

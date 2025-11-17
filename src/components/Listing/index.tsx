@@ -1,26 +1,44 @@
-import Menu from '../../models/Menu'
+import { useState, useEffect } from 'react'
+
 import Product from '../Product'
 import { ListingContainer } from './styles'
+import { getRestaurants, Restaurant } from '../../api'
+import { Loading } from '../../style'
 
-export type Props = {
-  itens: Menu[]
-}
+const Listing = () => {
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-const Listing = ({ itens }: Props) => (
-  <ListingContainer>
-      {itens.map((item) => (
+  useEffect(() => {
+
+    setTimeout(() => {
+        getRestaurants()
+          .then((data) => setRestaurants((data)))
+          .catch((erro) => setError(erro.message))
+          .finally(() => setLoading(false))
+      }, 3000)
+  }, [])
+
+  if (loading) return <Loading>Carregando...</Loading>
+  if (error) return <Loading>Erro: {error}</Loading>
+
+  return (
+    <ListingContainer>
+      {restaurants.map((item) => (
         <Product
           key={item.id}
-          assessment={item.assessment}
-          category={item.category}
-          description={item.description}
-          image={item.image}
-          title={item.title}
-          highlight={item.highlight}
-          inactive={item.id === 1}
+          id={item.id}
+          assessment={item.avaliacao}
+          type={item.tipo}
+          description={item.descricao}
+          image={item.capa}
+          title={item.titulo}
+          highlighted={item.destacado}
         />
       ))}
-  </ListingContainer>
-)
+    </ListingContainer>
+  )
+}
 
 export default Listing

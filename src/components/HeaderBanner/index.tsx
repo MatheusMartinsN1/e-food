@@ -1,7 +1,11 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import Header from '../Header'
 import logo from '../../assets/images/logo.png'
+
+import banner from '../../assets/images/banner.png'
 import {
   Banner,
   ContainerList,
@@ -13,13 +17,25 @@ import {
 } from './styles'
 import { openModal } from '../../store/modalSlice'
 
+import { getRestaurants, Restaurant } from '../../api'
+
 const HeaderBanner = () => {
   const dispatch = useDispatch()
   const cartCount = useSelector((state: RootState) => state.cart.items.length)
 
+  const { id } = useParams()
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+
   const openCart = () => {
     dispatch(openModal('cart'))
   }
+
+  useEffect(() => {
+    getRestaurants().then((data) => {
+      const found = data.find((item) => item.id === Number(id))
+      setRestaurant(found || null)
+    })
+  }, [id])
 
   return (
     <>
@@ -39,9 +55,9 @@ const HeaderBanner = () => {
             </ListItem>
           </ContainerList>
         </Header>
-        <Banner>
-          <TitleItaliana>Italiana</TitleItaliana>
-          <TitleTrattoria>La Dolce Vita Trattoria</TitleTrattoria>
+        <Banner style={{ backgroundImage: `url(${banner})` }}>
+          <TitleItaliana>{restaurant?.tipo}</TitleItaliana>
+          <TitleTrattoria>{restaurant?.titulo}</TitleTrattoria>
         </Banner>
       </header>
     </>

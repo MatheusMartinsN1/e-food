@@ -1,30 +1,32 @@
 import styled from 'styled-components'
 import { Colors } from '../../style'
 
-export const ListPizza = styled.li`
+export const ListFood = styled.li`
   background-color: ${Colors.red};
   width: 320px;
   margin-bottom: 32px;
 `
 
-export const ImgPizza = styled.img`
+export const ImgFood = styled.img`
   width: 304px;
+  height: 168px;
+  object-fit: cover;
   padding: 8px 0px 0px;
   margin: 0px auto;
   display: block;
 `
 
-export const TitlePizza = styled.h4`
+export const TitleFood = styled.h4`
   color: ${Colors.white};
   padding: 8px;
 `
 
-export const TextPizza = styled.p`
+export const TextFood = styled.p`
   color: ${Colors.white};
   padding: 8px;
 `
 
-export const ButtonPizza = styled.button`
+export const ButtonFood = styled.button`
   background-color: ${Colors.bege2};
   color: ${Colors.red};
   width: 304px;

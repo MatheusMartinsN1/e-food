@@ -52,6 +52,8 @@ export const ModalContent = styled.div`
 
   img {
     width: 280px;
+    height: 280px;
+    object-fit: cover;
     border-radius: 8px;
   }
 
