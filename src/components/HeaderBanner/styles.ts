@@ -53,7 +53,7 @@ export const Banner = styled.div`
   top: 240px;
 
   ${media.mobile} {
-    background-size: contain;
+    background-size: cover;
     top: 300px;
     display: flex;
     align-items: center;
