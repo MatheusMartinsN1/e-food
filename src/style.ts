@@ -34,7 +34,14 @@ export const EstiloGlobal = createGlobalStyle`
 `
 
 export const Loading = styled.p`
-  text-align: center;
   color: ${Colors.red};
+  background-color: ${Colors.bege};
+  width: 400px;
   font-size: 30px;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 0px auto;
+  text-align: center;
+  display: block;
+  position: relative;
 `

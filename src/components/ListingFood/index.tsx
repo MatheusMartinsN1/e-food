@@ -5,6 +5,8 @@ import ProductMenu from '../ProductMenu'
 import { ContainerFood } from './styles'
 import { useParams } from 'react-router-dom'
 
+import { Loading } from '../../style'
+
 const ListingTrattoria = () => {
   const { id } = useParams()
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
@@ -12,7 +14,8 @@ const ListingTrattoria = () => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    getRestaurants()
+    setTimeout(() => {
+      getRestaurants()
       .then((data) => {
         const restaurantId = Number(id)
 
@@ -27,10 +30,11 @@ const ListingTrattoria = () => {
       })
       .catch((erro) => setError(erro.message))
       .finally(() => setLoading(false))
+    }, 2000)
   }, [id])
 
-  if (loading) return <p>Carregando cardápio...</p>
-  if (error) return <p>Erro: {error}</p>
+  if (loading) return <Loading>Carregando cardápio...</Loading>
+  if (error) return <Loading>Erro: {error}</Loading>
   if (!restaurant) return null
 
   return (
