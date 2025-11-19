@@ -17,7 +17,7 @@ const Listing = () => {
           .then((data) => setRestaurants((data)))
           .catch((erro) => setError(erro.message))
           .finally(() => setLoading(false))
-      }, 3000)
+      }, 2000)
   }, [])
 
   if (loading) return <Loading>Carregando...</Loading>

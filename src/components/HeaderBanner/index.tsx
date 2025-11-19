@@ -5,7 +5,6 @@ import { RootState } from '../../store/store'
 import Header from '../Header'
 import logo from '../../assets/images/logo.png'
 
-import banner from '../../assets/images/banner.png'
 import {
   Banner,
   ContainerList,
@@ -55,7 +54,7 @@ const HeaderBanner = () => {
             </ListItem>
           </ContainerList>
         </Header>
-        <Banner style={{ backgroundImage: `url(${banner})` }}>
+        <Banner style={{ backgroundImage: `url(${restaurant?.capa})` }}>
           <TitleItaliana>{restaurant?.tipo}</TitleItaliana>
           <TitleTrattoria>{restaurant?.titulo}</TitleTrattoria>
         </Banner>
