@@ -1,41 +1,30 @@
-import { useState, useEffect } from 'react'
-import { getRestaurants, Restaurant } from '../../api'
-
-import ProductMenu from '../ProductMenu'
-import { ContainerFood } from './styles'
+import { BeatLoader } from 'react-spinners'
 import { useParams } from 'react-router-dom'
+
+import { useGetRestaurantsQuery } from '../../services/apiRestaurants'
+import { ContainerFood } from './styles'
+import ProductMenu from '../ProductMenu'
 
 import { Loading } from '../../style'
 
-const ListingTrattoria = () => {
+const ListingFood = () => {
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const restaurantId = Number(id)
+  const { data: restaurants, isLoading, error } = useGetRestaurantsQuery()
 
-  useEffect(() => {
-    setTimeout(() => {
-      getRestaurants()
-      .then((data) => {
-        const restaurantId = Number(id)
+  if (isLoading)
+    return (
+      <Loading>
+        Carregando <BeatLoader />
+      </Loading>
+    )
+  if (error) return <Loading>Erro ao carrgar</Loading>
 
-        const found = data.find((r) => r.id === restaurantId)
+    const restaurant = restaurants?.find((r) => r.id === restaurantId)
 
-        if (!found) {
-          setError(`Restaurante ${id} não encontrado`)
-          return
-        }
-
-        setRestaurant(found)
-      })
-      .catch((erro) => setError(erro.message))
-      .finally(() => setLoading(false))
-    }, 2000)
-  }, [id])
-
-  if (loading) return <Loading>Carregando cardápio...</Loading>
-  if (error) return <Loading>Erro: {error}</Loading>
-  if (!restaurant) return null
+    if (!restaurant) {
+      return <Loading>Restaurante {id} não encontrado</Loading>
+    }
 
   return (
     <ContainerFood>
@@ -54,4 +43,4 @@ const ListingTrattoria = () => {
   )
 }
 
-export default ListingTrattoria
+export default ListingFood

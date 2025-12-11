@@ -1,31 +1,28 @@
-import { useState, useEffect } from 'react'
+import { BeatLoader } from 'react-spinners'
 
 import Product from '../Product'
 import { ListingContainer } from './styles'
-import { getRestaurants, Restaurant } from '../../api'
+import { useGetRestaurantsQuery } from '../../services/apiRestaurants'
 import { Loading } from '../../style'
 
 const Listing = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  // const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  // const [loading, setLoading] = useState(true)
+  // const [error, setError] = useState<string | null>(null)
+  const { data: restaurants, isLoading, error } = useGetRestaurantsQuery()
 
-  useEffect(() => {
 
-    setTimeout(() => {
-        getRestaurants()
-          .then((data) => setRestaurants((data)))
-          .catch((erro) => setError(erro.message))
-          .finally(() => setLoading(false))
-      }, 2000)
-  }, [])
-
-  if (loading) return <Loading>Carregando...</Loading>
-  if (error) return <Loading>Erro: {error}</Loading>
+  if (isLoading)
+    return (
+      <Loading>
+        Carregando <BeatLoader />
+      </Loading>
+    )
+  if (error) return <Loading>Erro ao carregar</Loading>
 
   return (
     <ListingContainer>
-      {restaurants.map((item) => (
+      {restaurants?.map((item) => (
         <Product
           key={item.id}
           id={item.id}

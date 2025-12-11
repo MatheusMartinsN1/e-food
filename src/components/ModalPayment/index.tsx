@@ -2,8 +2,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+
 import { selectCartTotal } from '../../store/cartSlice'
 import ModalBase from '../ModalBase'
+
+
+import { openModal } from '../../store/modalSlice'
+import { FieldNumberCard, FieldNumberCvv, FieldsContainer } from './styles'
+import { RootState, store } from '../../store/store'
+import { setOrderId } from '../../store/orderSlice'
+import { useCreateOrderMutation } from '../../services/apiOrders'
 
 import {
   FieldsFlex,
@@ -15,10 +23,6 @@ import {
   ButtonContainer,
   FormButton
 } from '../ModalDelivery/styles'
-import { openModal } from '../../store/modalSlice'
-import { FieldNumberCard, FieldNumberCvv, FieldsContainer } from './styles'
-import { RootState } from '../../store/store'
-import { setOrderId } from '../../store/orderSlice'
 
 type PaymentModal = {
   name: string
@@ -33,6 +37,7 @@ const ModalPayment = () => {
   const dispatch = useDispatch()
   const activeModal = useSelector((state: RootState) => state.modal.activeModal)
   const isOpen = activeModal === 'payment'
+  const [sendPayment] = useCreateOrderMutation()
 
   const {
     register,
@@ -40,18 +45,35 @@ const ModalPayment = () => {
     formState: { errors }
   } = useForm<PaymentModal>()
 
-  const onSubmit = (data: PaymentModal) => {
-    const orderId =
-      'ORD-' + Math.random().toString(36).substring(2, 8).toUpperCase()
+  const onSubmit = async (data: PaymentModal) => {
+    try {
+      const cart = (store.getState() as RootState).cart.items
 
-    console.log('Dados do pagamento', data)
-    toast.success('Pagamento realizado com sucesso!')
+      const products = cart.map((item) => ({
+        id: item.id,
+        price: item.price
+      }))
+      const orderId =
+        'ORD-' + Math.random().toString(36).substring(2, 8).toUpperCase()
 
-    dispatch(setOrderId(orderId))
+      const response = await sendPayment({
+        code: orderId,
+        products,
+        total
+      }).unwrap()
 
-    setTimeout(() => {
-      dispatch(openModal('confirmation'))
-    }, 1500)
+      const finalCode = response?.code || orderId
+
+      dispatch(setOrderId(finalCode))
+
+      toast.success('Pagamento realizado com sucesso!')
+
+      setTimeout(() => {
+        dispatch(openModal('confirmation'))
+      }, 1500)
+    } catch (error: any) {
+      toast.error('Erro ao processar o pagamento')
+    }
   }
 
   const onError = () => {
@@ -96,7 +118,7 @@ const ModalPayment = () => {
               id="card-number"
               type="text"
               inputMode="numeric"
-              placeholder="Ex: 4111111111111111"
+              placeholder="Ex: 4111.1111.1111.1111"
               maxLength={16}
               {...register('numberCard', {
                 required: 'O número do cartão é obrigatório',

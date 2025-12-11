@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { BeatLoader } from 'react-spinners'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { RootState } from '../../store/store'
 import Header from '../Header'
 import logo from '../../assets/images/logo.png'
+import { openModal } from '../../store/modalSlice'
+import { useGetRestaurantByIdQuery } from '../../services/apiRestaurants'
 
 import {
   Banner,
@@ -14,27 +17,47 @@ import {
   TitleItaliana,
   ButtonHeader
 } from './styles'
-import { openModal } from '../../store/modalSlice'
-
-import { getRestaurants, Restaurant } from '../../api'
 
 const HeaderBanner = () => {
   const dispatch = useDispatch()
   const cartCount = useSelector((state: RootState) => state.cart.items.length)
 
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+  const restaurantId = Number(id)
+
+  const {
+    data: restaurant,
+    isLoading,
+    error
+  } = useGetRestaurantByIdQuery(restaurantId)
 
   const openCart = () => {
     dispatch(openModal('cart'))
   }
 
-  useEffect(() => {
-    getRestaurants().then((data) => {
-      const found = data.find((item) => item.id === Number(id))
-      setRestaurant(found || null)
-    })
-  }, [id])
+  if (isLoading) {
+    return (
+      <header>
+        <Banner>
+          <TitleItaliana>
+            Carregando <BeatLoader />
+          </TitleItaliana>
+        </Banner>
+      </header>
+    )
+  }
+
+  if (error || !restaurant) {
+    return (
+      <header>
+        <Banner>
+          <TitleItaliana>
+            Restaurante não encontrado
+          </TitleItaliana>
+        </Banner>
+      </header>
+    )
+  }
 
   return (
     <>
