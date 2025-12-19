@@ -8,7 +8,7 @@ export const orderApi = createApi({
   endpoints: (builder) => ({
     createOrder: builder.mutation<OrderResponse, OrderPayload>({
       query: (body) => ({
-        url: 'confirmation',
+        url: 'checkout',
         method: 'POST',
         body
       })
