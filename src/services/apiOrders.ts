@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const orderApi = createApi({
   reducerPath: 'orderApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api-ebac.vercel.app/api/efood'
+    baseUrl: 'https://api-ebac.vercel.app/api/efood/checkout'
   }),
   endpoints: (builder) => ({
     createOrder: builder.mutation<OrderResponse, OrderPayload>({
