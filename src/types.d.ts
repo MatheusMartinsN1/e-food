@@ -19,20 +19,61 @@ declare type Restaurant = {
 }
 
 declare type OrderPayload = {
-  code: string
-  products: {
-    id: number
-    price: number
-  }[]
-  total: number
+  products: [
+    {
+      id: number
+      price: number
+    }
+  ]
+  delivery: {
+    receiver: string
+    addres: {
+      description: string
+      city: string
+      zipCode: string
+      number: number
+      complement: string
+    }
+  }
+  payment: {
+    card: {
+      name: string
+      number: string
+      code: number
+      expires: {
+        month: number
+        year: number
+      }
+    }
+  }
 }
 
 declare type OrderResponse = {
-  id: string
-  code: string
-  products: {
-    id: number
-    price: number
-  }[]
-  total: number
+  products: [
+    {
+      id: number
+      price: number
+    }
+  ]
+  delivery: {
+    receiver: string
+    addres: {
+      description: string
+      city: string
+      zipCode: string
+      number: number
+      complement: string
+    }
+  }
+  payment: {
+    card: {
+      name: string
+      number: string
+      code: number
+      expires: {
+        month: number
+        year: number
+      }
+    }
+  }
 }
