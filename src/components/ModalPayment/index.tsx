@@ -8,7 +8,7 @@ import ModalBase from '../ModalBase'
 
 import { openModal } from '../../store/modalSlice'
 import { FieldNumberCard, FieldNumberCvv, FieldsContainer } from './styles'
-import { RootState, store } from '../../store/store'
+import { RootState } from '../../store/store'
 import { setOrderId } from '../../store/orderSlice'
 import { useCreateOrderMutation } from '../../services/apiOrders'
 

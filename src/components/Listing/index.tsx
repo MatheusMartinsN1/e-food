@@ -6,9 +6,6 @@ import { useGetRestaurantsQuery } from '../../services/apiRestaurants'
 import { Loading } from '../../style'
 
 const Listing = () => {
-  // const [restaurants, setRestaurants] = useState<Restaurant[]>([])
-  // const [loading, setLoading] = useState(true)
-  // const [error, setError] = useState<string | null>(null)
   const { data: restaurants, isLoading, error } = useGetRestaurantsQuery()
 
 

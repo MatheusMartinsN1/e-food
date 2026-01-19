@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Colors, media } from '../../style'
+import { Colors } from '../../style'
 import { Logo } from '../Header/styles'
 
 export const ContainerFooter = styled.div`
