@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type OrderState = {
-  orderId: string | null
+  orderId: number | null
 }
 
 const initialState: OrderState = {
@@ -12,7 +12,7 @@ const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    setOrderId: (state, action: PayloadAction<string>) => {
+    setOrderId: (state, action: PayloadAction<number>) => {
       state.orderId = action.payload
     },
     clearOrderId: (state) => {

@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import { selectCartTotal } from '../../store/cartSlice'
 import ModalBase from '../ModalBase'
 
-
 import { openModal } from '../../store/modalSlice'
 import { FieldNumberCard, FieldNumberCvv, FieldsContainer } from './styles'
 import { RootState, store } from '../../store/store'
@@ -39,6 +38,9 @@ const ModalPayment = () => {
   const isOpen = activeModal === 'payment'
   const [sendPayment] = useCreateOrderMutation()
 
+  const cart = useSelector((state: RootState) => state.cart.items)
+  const delivery = useSelector((state: RootState) => state.delivery)
+
   const {
     register,
     handleSubmit,
@@ -47,24 +49,28 @@ const ModalPayment = () => {
 
   const onSubmit = async (data: PaymentModal) => {
     try {
-      const cart = (store.getState() as RootState).cart.items
-
       const products = cart.map((item) => ({
         id: item.id,
         price: item.price
       }))
-      const orderId =
-        'ORD-' + Math.random().toString(36).substring(2, 8).toUpperCase()
 
       const response = await sendPayment({
-        code: orderId,
         products,
-        total
+        delivery,
+        payment: {
+          card: {
+            name: data.name,
+            number: data.numberCard,
+            code: Number(data.cvv),
+            expires: {
+              month: Number(data.dueMonth),
+              year: Number(data.expiryYear)
+            }
+          }
+        }
       }).unwrap()
 
-      const finalCode = response?.code || orderId
-
-      dispatch(setOrderId(finalCode))
+      dispatch(setOrderId(response.orderId))
 
       toast.success('Pagamento realizado com sucesso!')
 

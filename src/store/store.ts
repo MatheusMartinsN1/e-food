@@ -4,12 +4,14 @@ import modalReducer from './modalSlice'
 import orderReducer from './orderSlice'
 import { apiRestaurants } from '../services/apiRestaurants'
 import { orderApi } from '../services/apiOrders'
+import deliveryReducer from './deliverySlice'
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
     modal: modalReducer,
     order: orderReducer,
+    delivery: deliveryReducer,
 
     [orderApi.reducerPath]: orderApi.reducer,
     [apiRestaurants.reducerPath]: apiRestaurants.reducer
